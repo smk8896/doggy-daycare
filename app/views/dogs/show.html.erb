@@ -1,0 +1,20 @@
+<h1>Details for <%=@dog.name%></h1>
+
+<p>
+  <strong>ID: </strong><%= @dog.id %>
+</p>
+
+<p>
+  <strong>Breed: </strong><%= @dog.breed %>
+</p>
+
+<p>
+  <strong>Age: </strong><%= @dog.age %>
+
+</p>
+
+<p>
+  <strong>Date Added: </strong><%= @dog.created_at.stamp("April 29, 1976 at 6:01 pm")%>
+</p>
+
+<%= link_to "See All the Dogs", dogs_path %>
