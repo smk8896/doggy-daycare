@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :dogs, only: [:index, :new, :create, :show, :edit, :destroy]
+  resources :dogs
 
   root 'dogs#index'
 

@@ -1,4 +1,6 @@
 class DogsController < ApplicationController
+  before_action :set_dog, only: [:show, :edit, :update, :destroy]
+
   def index
     @dogs = Dog.all
   end
@@ -8,7 +10,7 @@ class DogsController < ApplicationController
   end
 
   def create
-    @dog = Dog.new(dog_params)
+    # @dog = Dog.new(dog_params)
 
     if @dog.save
       redirect_to dogs_url, notice: "Successfully saved"
@@ -19,15 +21,15 @@ class DogsController < ApplicationController
   end
 
   def show
-    @dog = Dog.find(params[:id])
+    # @dog = Dog.find(params[:id])
   end
 
   def edit
-    @dog = Dog.find (params[:id])
+    # @dog = Dog.find (params[:id])
   end
 
   def update
-    @dog = Dog.find (params[:id])
+    # @dog = Dog.find (params[:id])
 
     if @dog.update(dog_params)
       redirect_to dogs_url, notice: "Successfully updated!"
@@ -50,7 +52,11 @@ class DogsController < ApplicationController
 private
 
 def dog_params
-  params.require(:dog).permit(:name, :age, :breed)
+  params.require(:dog).permit(:name, :age, :breed, :owner)
 end
 
+  def set_dog
+@dog = Dog.find(params[:id])
+  end
 end
+
