@@ -10,7 +10,7 @@ class DogsController < ApplicationController
   end
 
   def create
-    # @dog = Dog.new(dog_params)
+    @dog = Dog.new(dog_params)
 
     if @dog.save
       redirect_to dogs_url, notice: "Successfully saved"
@@ -52,7 +52,7 @@ class DogsController < ApplicationController
 private
 
 def dog_params
-  params.require(:dog).permit(:name, :age, :breed, :owner)
+  params.require(:dog).permit(:name, :age, :breed, :owner_id)
 end
 
   def set_dog
